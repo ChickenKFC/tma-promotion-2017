@@ -1,0 +1,8 @@
+E:\Working Space\Project Workspaces\LogicalOperationSearch\HistorySearchCondition\HistorySearchCondition\bin\Debug\HistorySearchCondition.dll
+E:\Working Space\Project Workspaces\LogicalOperationSearch\HistorySearchCondition\HistorySearchCondition\bin\Debug\HistorySearchCondition.pdb
+E:\Working Space\Project Workspaces\LogicalOperationSearch\HistorySearchCondition\HistorySearchCondition\obj\Debug\HistorySearchCondition.HistorySearchControl.resources
+E:\Working Space\Project Workspaces\LogicalOperationSearch\HistorySearchCondition\HistorySearchCondition\obj\Debug\HistorySearchCondition.csproj.GenerateResource.Cache
+E:\Working Space\Project Workspaces\LogicalOperationSearch\HistorySearchCondition\HistorySearchCondition\obj\Debug\HistorySearchCondition.dll
+E:\Working Space\Project Workspaces\LogicalOperationSearch\HistorySearchCondition\HistorySearchCondition\obj\Debug\HistorySearchCondition.pdb
+E:\Working Space\Project Workspaces\LogicalOperationSearch\HistorySearchCondition\HistorySearchCondition\obj\Debug\HistorySearchCondition.Properties.Resources.resources
+E:\Working Space\Project Workspaces\LogicalOperationSearch\HistorySearchCondition\HistorySearchCondition\obj\Debug\HistorySearchCondition.csprojResolveAssemblyReference.cache
