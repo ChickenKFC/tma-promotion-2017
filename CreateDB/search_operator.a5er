@@ -1,0 +1,262 @@
+﻿# A5:ER FORMAT:10
+# A5:ER ENCODING:UTF8
+# A5:ER Mk-1 Copyright (C)2007 m.matsubara
+# A5:SQL Mk-2 Copyright (C)1997 m.matsubara
+#  http://www.wind.sannet.ne.jp/m_matsu/developer/a5m2/
+
+[Manager]
+ProjectName=
+Author=
+MaxEntityRowShow=1000
+ReadOnlyRecommend=0
+Page=Main
+PageInfo="Main",2,"A3Landscape",$FFFFFF
+Domain=@SERIAL=SERIAL
+Domain=@BOOLEAN=BOOLEAN
+LogicalView=1
+DecodeDomain=0
+ViewModePageIndividually=1
+ViewMode=2
+ViewFormat=0
+UseNondependenceDashLine=0
+FontName=Tahoma
+FontSize=6
+PaperSize=A4Landscape
+HeaderLeft=
+HeaderCenter=
+HeaderRight=
+FooterLeft=
+FooterCenter=
+FooterRight=
+ShowPageoutRelation=1
+RDBMSType=6
+RDBMSTypeName=PostgreSQL
+DefaultPkName=%0:s_PKC
+DefaultPkIndexName=%0:s_PKI
+DefaultIndexName=%0:s_IX%1:d
+DefaultFkName=%0:s_FK%1:d
+SqlSeparator=0
+ShowTag=1
+ShowCommonAttributes=0
+
+[Relation]
+Entity1=books
+Entity2=barcodes
+RelationType1=2
+RelationType2=3
+Fields1=book_id
+Fields2=book_id
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,2552,7448,2080,R,R
+Dependence=1
+Caption=
+PName=
+LineMode=0
+Bar1=255
+Bar2=745
+Bar3=208
+TermPos1=R
+TermPos2=R
+
+[Relation]
+Entity1=books
+Entity2=sort_description
+RelationType1=2
+RelationType2=3
+Fields1=book_id
+Fields2=book_id
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,2620,7380,2080,R,R
+Dependence=1
+Caption=
+PName=
+LineMode=0
+Bar1=262
+Bar2=738
+Bar3=208
+TermPos1=R
+TermPos2=R
+
+[Entity]
+PName=sort_description
+LName=sort_description
+Comment=
+TableOption=
+Page=MAIN
+Left=950
+Top=450
+Field="Book Id","book_id","@INT","NOT NULL",0,"","Book ID",$FFFFFFFF,""
+Field="Sort Description","sort_description","@VARCHAR",,,"","",$FFFFFFFF,""
+Field="Delete Flag","delete_flag","*@BOOLEAN",,,"FALSE","TRUE: already deleted.\nFALSE: still available",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20170328064616
+Position="MAIN",950,450
+
+[Entity]
+PName=search_history
+LName=search_history
+Comment=
+TableOption=
+Page=MAIN
+Left=350
+Top=600
+Field="Search History Id","search_history_id","*@SERIAL","NOT NULL",0,"","Book ID",$FFFFFFFF,""
+Field="Search Target Table","search_target_table","@INT",,,"","Private: 0\nPublic: 1",$FFFFFFFF,""
+Field="Search Target Column","search_target_column","@INT",,,"","",$FFFFFFFF,""
+Field="Search Condition","search_condition","@VARCHAR",,,"","",$FFFFFFFF,""
+Field="From Date","from_date","@DATETIME",,,"","",$FFFFFFFF,""
+Field="To Date","to_date","@DATETIME",,,"","",$FFFFFFFF,""
+Field="Delete Flag","delete_flag","*@BOOLEAN",,,"FALSE","TRUE: already deleted.\nFALSE: still available",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20170328064624
+Position="MAIN",350,600
+
+[Entity]
+PName=barcodes
+LName=barcodes
+Comment=
+TableOption=
+Page=MAIN
+Left=350
+Top=450
+Field="Book ID","book_id","@INT","NOT NULL",0,"","",$FFFFFFFF,""
+Field="Bar Code","bar_code","@VARCHAR",,,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20170313221500
+Position="MAIN",350,450
+
+[Relation]
+Entity1=books
+Entity2=scientific
+RelationType1=2
+RelationType2=3
+Fields1=book_id
+Fields2=book_id
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,2580,7420,2619,R,R
+Dependence=1
+Caption=
+PName=
+LineMode=0
+Bar1=258
+Bar2=742
+Bar3=262
+TermPos1=R
+TermPos2=R
+
+[Entity]
+PName=scientific
+LName=scientific
+Comment=
+TableOption=
+Page=MAIN
+Left=650
+Top=600
+Field="Book ID","book_id","@INT","NOT NULL",0,"","",$FFFFFFFF,""
+Field="Book Name","book_name","@VARCHAR",,,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20170328063330
+Position="MAIN",650,600
+
+[Relation]
+Entity1=books
+Entity2=mathematics
+RelationType1=2
+RelationType2=3
+Fields1=book_id
+Fields2=book_id
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,2365,7635,470,R,R
+Dependence=1
+Caption=
+PName=
+LineMode=0
+Bar1=236
+Bar2=764
+Bar3=47
+TermPos1=R
+TermPos2=R
+
+[Relation]
+Entity1=books
+Entity2=physical
+RelationType1=2
+RelationType2=3
+Fields1=book_id
+Fields2=book_id
+Cardinarity1=
+Cardinarity2=
+Position="MAIN",0,1077,8923,1614,R,R
+Dependence=1
+Caption=
+PName=
+LineMode=0
+Bar1=108
+Bar2=892
+Bar3=161
+TermPos1=R
+TermPos2=R
+
+[Entity]
+PName=mathematics
+LName=mathematics
+Comment=
+TableOption=
+Page=MAIN
+Left=350
+Top=250
+Field="Book ID","book_id","@INT","NOT NULL",0,"","",$FFFFFFFF,""
+Field="Book Name","book_name","@VARCHAR",,,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20170328063323
+Position="MAIN",350,250
+
+[Entity]
+PName=physical
+LName=physical
+Comment=
+TableOption=
+Page=MAIN
+Left=950
+Top=250
+Field="Book ID","book_id","@INT","NOT NULL",0,"","",$FFFFFFFF,""
+Field="Book Name","book_name","@VARCHAR",,,"","",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20170328063336
+Position="MAIN",950,250
+
+[Entity]
+PName=books
+LName=books
+Comment=
+TableOption=
+Page=MAIN
+Left=600
+Top=300
+Field="Book ID","book_id","*@SERIAL","NOT NULL",0,"","Book ID",$FFFFFFFF,""
+Field="Book Type","book_type","@INT",,,"","Private: 0\nPublic: 1",$FFFFFFFF,""
+Field="Book Shelf","book_shelf","@INT",,,"","",$FFFFFFFF,""
+Field="Pushlish Date","pulish_date","@DATETIME",,,"statement_timestamp()","",$FFFFFFFF,""
+Field="Author","author","@VARCHAR",,,"","",$FFFFFFFF,""
+Field="Delete Flag","delete_flag","*@BOOLEAN",,,"FALSE","TRUE: already deleted.\nFALSE: still available",$FFFFFFFF,""
+EffectMode=None
+Color=$000000
+BkColor=$FFFFFF
+ModifiedDateTime=20170328064610
+Position="MAIN",600,300,291,175
