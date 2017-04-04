@@ -231,6 +231,7 @@
             // 
             // tabLogicalOperatorSearch
             // 
+            this.tabLogicalOperatorSearch.Controls.Add(this.btnExport);
             this.tabLogicalOperatorSearch.Controls.Add(this.flpSearchConditionCreatorPanel);
             this.tabLogicalOperatorSearch.Location = new System.Drawing.Point(4, 22);
             this.tabLogicalOperatorSearch.Name = "tabLogicalOperatorSearch";
@@ -244,11 +245,10 @@
             // 
             this.flpSearchConditionCreatorPanel.AutoScroll = true;
             this.flpSearchConditionCreatorPanel.BackColor = System.Drawing.Color.Transparent;
-            this.flpSearchConditionCreatorPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpSearchConditionCreatorPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpSearchConditionCreatorPanel.Location = new System.Drawing.Point(3, 3);
             this.flpSearchConditionCreatorPanel.Name = "flpSearchConditionCreatorPanel";
-            this.flpSearchConditionCreatorPanel.Size = new System.Drawing.Size(479, 214);
+            this.flpSearchConditionCreatorPanel.Size = new System.Drawing.Size(479, 181);
             this.flpSearchConditionCreatorPanel.TabIndex = 0;
             this.flpSearchConditionCreatorPanel.WrapContents = false;
             // 
@@ -279,7 +279,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(571, 502);
+            this.btnSearch.Location = new System.Drawing.Point(679, 505);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(101, 23);
             this.btnSearch.TabIndex = 3;
@@ -311,11 +311,11 @@
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(678, 502);
+            this.btnExport.Location = new System.Drawing.Point(421, 190);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(101, 23);
+            this.btnExport.Size = new System.Drawing.Size(58, 23);
             this.btnExport.TabIndex = 5;
-            this.btnExport.Text = "Export";
+            this.btnExport.Text = "Add";
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
@@ -339,7 +339,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(786, 531);
-            this.Controls.Add(this.btnExport);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.pgbSearchProcess);

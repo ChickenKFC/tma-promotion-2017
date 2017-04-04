@@ -11,3 +11,16 @@ E:\Working Space\Project Workspaces\LogicalOperationSearch\LogicalOperationSearc
 E:\Working Space\Project Workspaces\LogicalOperationSearch\LogicalOperationSearch\obj\Debug\LogicalOperationSearch.DragItem.resources
 E:\Working Space\Project Workspaces\LogicalOperationSearch\LogicalOperationSearch\obj\Debug\LogicalOperationSearch.DropPanelControl.resources
 E:\Working Space\Project Workspaces\LogicalOperationSearch\LogicalOperationSearch\obj\Debug\HistorySearchCondition.HistorySearchControl.resources
+E:\Working Space\GitHub\tma-promotion-2017\Demo\LogicalOperationSearch\LogicalOperationSearch\bin\Debug\LogicalOperationSearch.exe.config
+E:\Working Space\GitHub\tma-promotion-2017\Demo\LogicalOperationSearch\LogicalOperationSearch\bin\Debug\LogicalOperationSearch.exe
+E:\Working Space\GitHub\tma-promotion-2017\Demo\LogicalOperationSearch\LogicalOperationSearch\bin\Debug\LogicalOperationSearch.pdb
+E:\Working Space\GitHub\tma-promotion-2017\Demo\LogicalOperationSearch\LogicalOperationSearch\bin\Debug\Npgsql.dll
+E:\Working Space\GitHub\tma-promotion-2017\Demo\LogicalOperationSearch\LogicalOperationSearch\obj\Debug\LogicalOperationSearch.csprojResolveAssemblyReference.cache
+E:\Working Space\GitHub\tma-promotion-2017\Demo\LogicalOperationSearch\LogicalOperationSearch\obj\Debug\LogicalOperationSearch.DragItem.resources
+E:\Working Space\GitHub\tma-promotion-2017\Demo\LogicalOperationSearch\LogicalOperationSearch\obj\Debug\LogicalOperationSearch.DropPanelControl.resources
+E:\Working Space\GitHub\tma-promotion-2017\Demo\LogicalOperationSearch\LogicalOperationSearch\obj\Debug\HistorySearchCondition.HistorySearchControl.resources
+E:\Working Space\GitHub\tma-promotion-2017\Demo\LogicalOperationSearch\LogicalOperationSearch\obj\Debug\LogicalOperationSearch.frmMain.resources
+E:\Working Space\GitHub\tma-promotion-2017\Demo\LogicalOperationSearch\LogicalOperationSearch\obj\Debug\LogicalOperationSearch.Properties.Resources.resources
+E:\Working Space\GitHub\tma-promotion-2017\Demo\LogicalOperationSearch\LogicalOperationSearch\obj\Debug\LogicalOperationSearch.csproj.GenerateResource.Cache
+E:\Working Space\GitHub\tma-promotion-2017\Demo\LogicalOperationSearch\LogicalOperationSearch\obj\Debug\LogicalOperationSearch.exe
+E:\Working Space\GitHub\tma-promotion-2017\Demo\LogicalOperationSearch\LogicalOperationSearch\obj\Debug\LogicalOperationSearch.pdb

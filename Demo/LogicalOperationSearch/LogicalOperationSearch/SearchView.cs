@@ -35,6 +35,11 @@ namespace LogicalOperationSearch
         /// </summary>
         private SearchTypes SearchType;
 
+        /// <summary>
+        /// Search background process
+        /// </summary>
+        BackgroundWorker searchBackgroundWoker = new BackgroundWorker();
+
         public frmMain()
         {
             InitializeComponent();
@@ -57,7 +62,134 @@ namespace LogicalOperationSearch
             usrCtrl.IsDisplayOperatorSelection = false;
             usrCtrl.OnDeleteLinkClicked += new EventHandler(OnDeleteLinkClicked);
             flpSearchConditionCreatorPanel.Controls.Add(usrCtrl);
+
+            #region Initialize searching background worker.
+            // Report process status
+            searchBackgroundWoker.WorkerReportsProgress = true;
+
+            // Handlers
+            searchBackgroundWoker.DoWork += ExecuteSearchByThreadInstance;
+
+            // Report process status.
+            searchBackgroundWoker.ProgressChanged += UpdateSearchProcessReport;
+
+            // Report end status.
+            searchBackgroundWoker.RunWorkerCompleted += ExecuteSearchByThreadInstanceComplete;
+
+            #endregion Initialize searching background worker.
         }
+
+        #region Search Process Worker
+        // Execute search function.
+        private void ExecuteSearchByThreadInstance(object sender, DoWorkEventArgs args)
+        {
+            BeginInvoke((MethodInvoker)delegate
+            {
+                if (tbSimpleSearch.SelectedIndex == 0)
+                {
+                    // Simple search
+                    // Collection search information.
+                    // Search target.
+                    if (rdMathematics.Checked)
+                    {
+                        SearchTarget = SearchTargets.Mathematics;
+                    }
+                    else if (rdPhysical.Checked)
+                    {
+                        SearchTarget = SearchTargets.Physical;
+                    }
+                    else
+                    {
+                        SearchTarget = SearchTargets.Sciencetifics;
+                    }
+
+                    // Search condition.
+                    string searchCondition = string.Empty;
+                    DateTime? fromDate = null;
+                    DateTime? toDate = null;
+                    bool validate = true;
+
+                    switch (SearchType)
+                    {
+                        case SearchTypes.Author:
+                        case SearchTypes.BookName:
+                        case SearchTypes.Barcode:
+                            if (string.IsNullOrEmpty(tbSearchText.Text.Trim()))
+                            {
+                                MessageBox.Show("Please input required fields", "Missing input", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                                validate = false;
+                            }
+                            else
+                            {
+                                searchCondition = tbSearchText.Text.Trim();
+                            }
+                            break;
+                        case SearchTypes.PulishDate:
+                            fromDate = dtFrom.Value;
+                            toDate = dtTo.Value;
+                            break;
+
+                        default:
+                            throw new Exception("Selected Search Type Is Invalid.");
+                    }
+
+                    if (validate)
+                    {
+
+                        // Generate information search.
+                        SearchConditionInformation info = new SearchConditionInformation()
+                        {
+                            SearchTarget = SearchTarget,
+                            SearchType = SearchType,
+                            TextCondition = searchCondition,
+                            FromDate = fromDate,
+                            ToDate = toDate
+                        };
+
+                        // Update search process.
+                        pgbSearchProcess.Style = ProgressBarStyle.Marquee;
+                        pgbSearchProcess.MarqueeAnimationSpeed = 50;
+
+                        // Search and set resource for result list.
+                        SearchHandler handler = new SearchHandler();
+                        dgDisplayResult.DataSource = handler.SearchBook(info);
+
+                        // Call function to update flowlayoutpanel
+                        UpdateHistorySearchList();
+                    }
+                }
+                else
+                {
+                    using (DatabaseManager localDatabase = DatabaseManager.CreateInstance())
+                    {
+                        // Update search process.
+                        pgbSearchProcess.Style = ProgressBarStyle.Marquee;
+                        pgbSearchProcess.MarqueeAnimationSpeed = 50;
+
+                        // Advance search.
+                        CustomGroupSearchCondition customGroupSearchCondition = CollectGroupSearchInfos();
+                        SearchWithOperator(customGroupSearchCondition);
+                    }
+
+                }
+            });
+        }
+
+        // Update process status.
+        private void UpdateSearchProcessReport(object sender, ProgressChangedEventArgs args)
+        {
+        }
+
+        // Searching completed event.
+        private void ExecuteSearchByThreadInstanceComplete(object sender, RunWorkerCompletedEventArgs args)
+        {
+            // Stop search process and show complete message.
+            pgbSearchProcess.Style = ProgressBarStyle.Continuous;
+            pgbSearchProcess.MarqueeAnimationSpeed = 0;
+
+            MessageBox.Show("Search completed !");
+        }
+        #endregion Search Process Worker
 
         private void OnControlChanges(Object sender, ControlEventArgs args)
         {
@@ -102,85 +234,9 @@ namespace LogicalOperationSearch
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
-            if (tbSimpleSearch.SelectedIndex == 0)
+            if (searchBackgroundWoker != null)
             {
-                // Simple search
-                // Collection search information.
-                // Search target.
-                if (rdMathematics.Checked)
-                {
-                    SearchTarget = SearchTargets.Mathematics;
-                }
-                else if (rdPhysical.Checked)
-                {
-                    SearchTarget = SearchTargets.Physical;
-                }
-                else
-                {
-                    SearchTarget = SearchTargets.Sciencetifics;
-                }
-
-                // Search condition.
-                string searchCondition = string.Empty;
-                DateTime? fromDate = null;
-                DateTime? toDate = null;
-                bool validate = true;
-
-                switch (SearchType)
-                {
-                    case SearchTypes.Author:
-                    case SearchTypes.BookName:
-                    case SearchTypes.Barcode:
-                        if (string.IsNullOrEmpty(tbSearchText.Text.Trim()))
-                        {
-                            MessageBox.Show("Please input required fields", "Missing input", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                            validate = false;
-                        }
-                        else
-                        {
-                            searchCondition = tbSearchText.Text.Trim();
-                        }
-                        break;
-                    case SearchTypes.PulishDate:
-                        fromDate = dtFrom.Value;
-                        toDate = dtTo.Value;
-                        break;
-
-                    default:
-                        throw new Exception("Selected Search Type Is Invalid.");
-                }
-
-                if (validate)
-                {
-
-                    // Generate information search.
-                    SearchConditionInformation info = new SearchConditionInformation()
-                    {
-                        SearchTarget = SearchTarget,
-                        SearchType = SearchType,
-                        TextCondition = searchCondition,
-                        FromDate = fromDate,
-                        ToDate = toDate
-                    };
-
-                    // Search and set resource for result list.
-                    SearchHandler handler = new SearchHandler();
-                    dgDisplayResult.DataSource = handler.SearchBook(info);
-
-                    // Call function to update flowlayoutpanel
-                    UpdateHistorySearchList();
-                }
-            }
-            else
-            {
-                using (DatabaseManager localDatabase = DatabaseManager.CreateInstance())
-                {
-                    // Advance search.
-                    CustomGroupSearchCondition customGroupSearchCondition = CollectGroupSearchInfos();
-                    SearchWithOperator(customGroupSearchCondition);
-                }
-                
+                searchBackgroundWoker.RunWorkerAsync();
             }
         }
 
