@@ -46,6 +46,7 @@
             this.rdMathematics = new System.Windows.Forms.RadioButton();
             this.rdPhysical = new System.Windows.Forms.RadioButton();
             this.tabLogicalOperatorSearch = new System.Windows.Forms.TabPage();
+            this.btnExport = new System.Windows.Forms.Button();
             this.flpSearchConditionCreatorPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgDisplayResult = new System.Windows.Forms.DataGridView();
@@ -53,7 +54,6 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.flpHistorySearch = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnExport = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.historySearchControlBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.historySearchControlBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
@@ -241,6 +241,16 @@
             this.tabLogicalOperatorSearch.Text = "Searching With Logical Operation";
             this.tabLogicalOperatorSearch.UseVisualStyleBackColor = true;
             // 
+            // btnExport
+            // 
+            this.btnExport.Location = new System.Drawing.Point(421, 190);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(58, 23);
+            this.btnExport.TabIndex = 5;
+            this.btnExport.Text = "Add";
+            this.btnExport.UseVisualStyleBackColor = true;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
+            // 
             // flpSearchConditionCreatorPanel
             // 
             this.flpSearchConditionCreatorPanel.AutoScroll = true;
@@ -309,16 +319,6 @@
             this.flpHistorySearch.TabIndex = 0;
             this.flpHistorySearch.WrapContents = false;
             // 
-            // btnExport
-            // 
-            this.btnExport.Location = new System.Drawing.Point(421, 190);
-            this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(58, 23);
-            this.btnExport.TabIndex = 5;
-            this.btnExport.Text = "Add";
-            this.btnExport.UseVisualStyleBackColor = true;
-            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "Tag";
@@ -347,7 +347,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Searching With Logical Operator";
+            this.Text = "Searching With Logical Operation";
             this.tbSimpleSearch.ResumeLayout(false);
             this.tabSimpleSearch.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
