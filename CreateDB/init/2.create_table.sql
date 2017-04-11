@@ -55,7 +55,7 @@ create table physical (
 -- books
 create table books (
   book_id SERIAL not null
-  , book_type integer
+  --, book_type integer
   , book_shelf integer
   , pulish_date timestamp default statement_timestamp()
   , author character varying
@@ -96,10 +96,6 @@ comment on table physical is 'physical';
 comment on column physical.book_id is 'Book ID';
 comment on column physical.book_name is 'Book Name';
 
-comment on table books is 'books';
-comment on column books.book_id is 'Book ID	 Book ID';
-comment on column books.book_type is 'Book Type	 Private: 0
-Public: 1';
 comment on column books.book_shelf is 'Book Shelf';
 comment on column books.pulish_date is 'Pushlish Date';
 comment on column books.author is 'Author';
